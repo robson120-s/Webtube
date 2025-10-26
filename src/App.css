@@ -1,3 +1,29 @@
+/* Define Chiller font */
+@font-face {
+  font-family: 'Chiller';
+  src: url('./fonts/Chiller.woff2') format('woff2');
+}
+
+/* Define Colonna MT font */
+@font-face {
+  font-family: 'Colonna MT';
+  src: url('./fonts/ColonnaMT.woff2') format('woff2');
+}
+
+
+
+/* Optional: Override Bootstrap's default font for the entire body */
+:root {
+  --bs-body-font-family: 'Chiller', cursive;
+}
+
+
+
+
+
+
+
+
 .App {
   text-align: center;
 }
