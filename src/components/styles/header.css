@@ -1,7 +1,18 @@
+
 .header{
-    background-color: rgb(204, 22, 22);
-    border: 6px solid rgb(231, 218, 37);
+background-image: url('../../images/header.jfif');
+    background-size: cover; 
+
+background-repeat: no-repeat; 
+
+  background-position: center center; 
+
+border: 6px solid rgb(248, 22, 22); /* Gold/Yellow Border */
+    padding: 90px; /* Large internal padding to give space for the content */
 }
 .text{
     font-family: 'Colonna MT', serif;
+}
+.logo{
+    height: 80px;
 }

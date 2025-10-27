@@ -18,7 +18,6 @@ const Main = () => {
     .then(data=>{
         setVideos(data);
         setLoading(false);
-
     })
     .catch(error => {
         console.error("Error fetching data:", error);
