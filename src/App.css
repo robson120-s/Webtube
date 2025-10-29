@@ -18,7 +18,7 @@
 }
 
 .vid-card{
-  item-align: center;
+  align-items: center;
   font-size: larger;
 }
 
