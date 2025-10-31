@@ -4,51 +4,78 @@ const Main = () => {
   const [videos, setVideos] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_KEY = process.env.REACT_APP_YOUTUBE_API_KEY;
-  const channelId = "UC1rufUI1qdnHq6B8OAXSdwA";
+  // 👇 Manually specify the video IDs you want to display
+  const manualVideoIds = [
+    "UTJr9d84i1c", // your provided video
+    // "dQw4w9WgXcQ", // example video
+    // "LXb3EKWsInQ", // another example
+  ];
 
   useEffect(() => {
-    const fetchVideos = async () => {
+    // Simulate fetching manually added videos
+    const fetchManualVideos = () => {
       try {
-        const response = await fetch(
-  `https://www.googleapis.com/youtube/v3/search?key=${API_KEY}&channelId=UC1rufUI1qdnHq6B8OAXSdwA&part=snippet,id&order=date&maxResults=10`
-);
+        // Create mock video data using YouTube embed URLs
+        const manualVideos = manualVideoIds.map((id) => ({
+          id: { videoId: id },
+          snippet: {
+            title: `YouTube Video (${id})`,
+            thumbnails: {
+              medium: {
+                url: `https://img.youtube.com/vi/${id}/mqdefault.jpg`,
+              },
+            },
+          },
+        }));
 
-        const data = await response.json();
-        console.log(data); // 👈 check what comes back
-
-        if (data.items) {
-          setVideos(data.items);
-        } else {
-          setVideos([]);
-          console.error("No items found in API response");
-        }
+        setVideos(manualVideos);
       } catch (error) {
-        console.error("Error fetching videos:", error);
+        console.error("Error loading manual videos:", error);
         setVideos([]);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchVideos();
-  }, [API_KEY, channelId]);
+    fetchManualVideos();
+  }, []);
 
   if (loading) return <p>Loading...</p>;
-
   if (!videos || videos.length === 0) return <p>No videos found.</p>;
 
   return (
-    <div>
-      {videos.map((video) => (
-        <div key={video.id.videoId || video.id.channelId}>
-          <h3>{video.snippet.title}</h3>
-          <img
-            src={video.snippet.thumbnails.medium.url}
-            alt={video.snippet.title}
-          />
-        </div>
-      ))}
+    <div style={{ textAlign: "center", padding: "20px" }}>
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+        }}
+      >
+        {videos.map((video) => (
+          <div
+            key={video.id.videoId}
+            style={{
+              border: "1px solid #ccc",
+              borderRadius: "10px",
+              padding: "10px",
+              width: "360px",
+              boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            }}
+          >
+            <iframe
+              width="320"
+              height="180"
+              src={`https://www.youtube.com/embed/${video.id.videoId}`}
+              title={video.snippet.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };
