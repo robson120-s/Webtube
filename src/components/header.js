@@ -9,7 +9,7 @@ const Header = () => {
 
       <div className="text-center rounded w-100 pt-3">
         <img src={logo} alt="Logo" className="logo rounded-circle " />
-        <h1 className="display-3 fw-bold text-dark text">Hamere Birhan</h1>
+        <h1 className="display-4 fw-bold text-dark text">Hamere Birhan</h1>
       </div>
     </div>
   );

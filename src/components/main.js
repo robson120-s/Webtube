@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from "react";
+import "./styles/header.css";
 
 const Main = () => {
-  const [videos, setVideos] = useState([]);
+  const [videosPart1, setVideosPart1] = useState([]);
+  const [videosPart2, setVideosPart2] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 👇 Manually specify the video IDs you want to display
-  const manualVideoIds = [
-    "UTJr9d84i1c", // your provided video
-    // "dQw4w9WgXcQ", // example video
-    // "LXb3EKWsInQ", // another example
-  ];
+  // 🎬 Manually specify your video IDs
+  const manualVideoIdsPart1 = ["vzkbrld4euc" ,"UTJr9d84i1c", "TkTjvutr8oM"]; // Part 1 video(s) // saint john chrysostom education program
+  const manualVideoIdsPart2 = ["Pp54hFv-rvk", "zEkl28HfNsI", "1WWsSV6PGl4"]; // Part 2 video(s) "y4XDKKDYbyo", 
 
   useEffect(() => {
-    // Simulate fetching manually added videos
     const fetchManualVideos = () => {
       try {
-        // Create mock video data using YouTube embed URLs
-        const manualVideos = manualVideoIds.map((id) => ({
-          id: { videoId: id },
+        const part1 = manualVideoIdsPart1.map((id) => ({
+          id,
           snippet: {
-            title: `YouTube Video (${id})`,
+            title: `Part 1 Video (${id})`,
             thumbnails: {
               medium: {
                 url: `https://img.youtube.com/vi/${id}/mqdefault.jpg`,
@@ -28,10 +25,24 @@ const Main = () => {
           },
         }));
 
-        setVideos(manualVideos);
+        const part2 = manualVideoIdsPart2.map((id) => ({
+          id,
+          snippet: {
+            title: `Part 2 Video (${id})`,
+            thumbnails: {
+              medium: {
+                url: `https://img.youtube.com/vi/${id}/mqdefault.jpg`,
+              },
+            },
+          },
+        }));
+
+        setVideosPart1(part1);
+        setVideosPart2(part2);
       } catch (error) {
         console.error("Error loading manual videos:", error);
-        setVideos([]);
+        setVideosPart1([]);
+        setVideosPart2([]);
       } finally {
         setLoading(false);
       }
@@ -41,10 +52,23 @@ const Main = () => {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (!videos || videos.length === 0) return <p>No videos found.</p>;
 
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
+      <h3 className="display-4 text">Welcome to Hamere Berhan.</h3>
+      <h5 className="display-5 text">(ሐመረ ብርሃን የብራና መጻሕፍት ሥራ ድርጅት።)</h5>
+
+      <p className="moto px-5">
+        <q>
+          <u>Let's return to the past! || "ወደ ቀድሞ ነገር እንመለስ"</u>
+        </q>{" "}
+        This work began in 2010 when a few brothers had some ideas. Originally,
+        the goal was to prepare and provide free parchment scriptures to the
+        monastery's fathers.
+      </p>
+
+
+
       <div
         style={{
           display: "flex",
@@ -53,21 +77,21 @@ const Main = () => {
           gap: "20px",
         }}
       >
-        {videos.map((video) => (
+        {videosPart2.map((video) => (
           <div
-            key={video.id.videoId}
+            key={video.id}
             style={{
-              border: "1px solid #ccc",
+              border: "3px solid #c12525ff",
               borderRadius: "10px",
               padding: "10px",
-              width: "360px",
+              width: "460px",
               boxShadow: "0 0 10px rgba(0,0,0,0.2)",
             }}
           >
             <iframe
-              width="320"
-              height="180"
-              src={`https://www.youtube.com/embed/${video.id.videoId}`}
+              width="420"
+              height="280"
+              src={`https://www.youtube.com/embed/${video.id}`}
               title={video.snippet.title}
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -76,6 +100,48 @@ const Main = () => {
           </div>
         ))}
       </div>
+
+
+
+      <b style={{ display: "block", marginTop: "40px" }}>
+        ቅዱስ ዮሐንስ አፈወርቅ የትምህርት ፕሮግራም | የክረምት ትምህርት መርሐግብር | St. John Chrysostom
+        Education Program | Summer Camp 2025
+      </b>
+      
+      <div
+        style={{
+          display: "flex",
+          flexWrap: "wrap",
+          justifyContent: "center",
+          gap: "20px",
+          paddingTop: "20px", 
+        }}
+      >
+        {videosPart1.map((video) => (
+          <div
+            key={video.id}
+            style={{
+              border: "3px solid #c12525ff",
+              borderRadius: "10px",
+              padding: "10px",
+              width: "460px",
+              boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+            }}
+          >
+            <iframe
+              width="420"
+              height="280"
+              src={`https://www.youtube.com/embed/${video.id}`}
+              title={video.snippet.title}
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        ))}
+      </div>
+
+
     </div>
   );
 };

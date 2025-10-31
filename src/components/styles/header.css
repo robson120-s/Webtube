@@ -16,3 +16,13 @@ border: 6px solid rgb(248, 22, 22); /* Gold/Yellow Border */
 .logo{
     height: 80px;
 }
+.moto{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 20px;
+}
+body {
+    background-color: #f0f0f0; /* Light grey background for the entire page */
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
