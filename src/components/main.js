@@ -114,6 +114,7 @@ const Main = () => {
         ቅዱስ ዮሐንስ አፈወርቅ የትምህርት ፕሮግራም | የክረምት ትምህርት መርሐግብር | St. John Chrysostom
         Education Program | Summer Camp 2025
       </b>
+      <p className="pt-3 fs-5">ከሐመረ ብርሃን አበይት የአገልግሎት መስኮች አንዱ የሆነው  የቅዱስ ዮሐንስ አፈወርቅ የዘመነ ክረምት አዳር የህጻናት ትምህርት  መርሐ ግብር:: </p>
       
       <div
         style={{
