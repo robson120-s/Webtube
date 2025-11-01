@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./styles/header.css";
+import logo2 from "../images/logo.png"
 
 const Main = () => {
   const [videosPart1, setVideosPart1] = useState([]);
   const [videosPart2, setVideosPart2] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // 🎬 Manually specify your video IDs
+
   const manualVideoIdsPart1 = ["vzkbrld4euc" ,"UTJr9d84i1c", "TkTjvutr8oM"]; // Part 1 video(s) // saint john chrysostom education program
   const manualVideoIdsPart2 = ["Pp54hFv-rvk", "zEkl28HfNsI", "1WWsSV6PGl4"]; // Part 2 video(s) "y4XDKKDYbyo", 
 
@@ -55,6 +56,7 @@ const Main = () => {
 
   return (
     <div style={{ textAlign: "center", padding: "20px" }}>
+      <div className="sec_one">
       <h3 className="display-4 text">Welcome to Hamere Berhan.</h3>
       <h5 className="display-5 text">(ሐመረ ብርሃን የብራና መጻሕፍት ሥራ ድርጅት።)</h5>
 
@@ -99,11 +101,16 @@ const Main = () => {
             ></iframe>
           </div>
         ))}
+        </div>
       </div>
 
 
 
-      <b style={{ display: "block", marginTop: "40px" }}>
+
+        <div className="sec_two">
+          <img src={logo2} alt="Logo" className="logo2 rounded-circle" />
+
+      <b style={{ display: "block", marginTop: "40px" }} className="display-6">
         ቅዱስ ዮሐንስ አፈወርቅ የትምህርት ፕሮግራም | የክረምት ትምህርት መርሐግብር | St. John Chrysostom
         Education Program | Summer Camp 2025
       </b>
@@ -139,6 +146,7 @@ const Main = () => {
             ></iframe>
           </div>
         ))}
+      </div>
       </div>
 
 
