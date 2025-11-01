@@ -1,41 +1,46 @@
-
-.header{
-background-image: url('../../images/header.jfif');
-    background-size: cover; 
-
-background-repeat: no-repeat; 
-
-  background-position: center center; 
-
-border: 6px solid rgb(231, 123, 123); /* Gold/Yellow Border */
-    padding: 90px; /* Large internal padding to give space for the content */
+.header {
+  background-image: url("../../images/header.jfif");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  border: 6px solid rgb(231, 123, 123);
+  padding: 8vw; /* responsive padding (was 90px) */
+  transition: all 0.3s ease-in-out;
 }
-.text{
-    font-family: 'Colonna MT', serif;
-    color: rgb(135, 24, 4);
-}
-.logo{
-    height: 80px;
-}
-.logo2{
-    width: 130px;
-    height: 130px;
 
+/* Responsive scaling for smaller screens */
+@media (max-width: 768px) {
+  .header {
+    padding: 15vw; /* more breathing space on mobile */
+    border-width: 4px;
+  }
 }
-.moto{
-    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    font-size: 20px;
-}
-.sec_one{
-    background-color: rgb(231, 225, 225);
-    padding: 23px;  
-    margin: 26px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(254, 4, 4, 0.19);
-}
-.sec_two{
-    background-color: rgb(228, 226, 226);
-    padding: 23px;
-    margin: 26px;
-    box-shadow: 0 4px 8px 0 rgba(237, 7, 7, 0.8), 0 6px 20px 0 rgba(243, 6, 6, 0.19);
 
+.text {
+  font-family: "Colonna MT", serif;
+  color: rgb(135, 24, 4);
+}
+.logo {
+  height: 80px;
+}
+.logo2 {
+  width: 130px;
+  height: 130px;
+}
+.moto {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 20px;
+}
+.sec_one {
+  background-color: rgb(231, 225, 225);
+  padding: 23px;
+  margin: 26px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.6), 0 6px 20px 0 rgba(254, 4, 4, 0.19);
+}
+.sec_two {
+  background-color: rgb(228, 226, 226);
+  padding: 23px;
+  margin: 26px;
+  box-shadow: 0 4px 8px 0 rgba(237, 7, 7, 0.8),
+    0 6px 20px 0 rgba(243, 6, 6, 0.19);
 }
